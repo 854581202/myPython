@@ -1,8 +1,10 @@
 # -*- coding:utf-8 -*-
 from functools import reduce
+import functools
 
 #这是后加上去的，为了防止str2num处理“7.6”时报错。
 def log(func):
+    @functools.wraps(func)
     def wraper(*args,**kw):
         s = args[0]
         if "." in s:
@@ -28,5 +30,7 @@ def main():
     r = calc('99 + 88 + 7.6')
     print('99 + 88 + 7.6 =', r)
 
-
+now = log(str2num)
+print(now("1"))
+print(str(now.__name__))
 main()
