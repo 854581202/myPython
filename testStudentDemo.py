@@ -44,7 +44,7 @@ class TestStudent(unittest.TestCase):
         with self.assertRaises(ValueError):
             s2.get_grade()
        # with self.assertRaises(ValueError):
-        #    s3.get_grade()
+       #    s3.get_grade()
 
 if __name__ == '__main__':
     unittest.main()
